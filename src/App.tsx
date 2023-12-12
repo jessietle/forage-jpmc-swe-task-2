@@ -23,7 +23,7 @@ class App extends Component<{}, IState> {
       // data saves the server responds.
       // We use this state to parse data down to the child element (Graph) as element property
       data: [],
-      showGraph: false,
+      showGraph: false, // this helps to show the graph only user click to see data, otherwise, the graph will be hidden
     };
   }
 
@@ -40,6 +40,7 @@ class App extends Component<{}, IState> {
    * Get new data from server and update the state with the new data
    */
   getDataFromServer() {
+    //this method is help data continue run as long as user still open and run serve. Once they click, the grap will  run and update continously. 
     let x =0;
     const interval = setInterval(() =>{
       DataStreamer.getData((serverResponds: ServerRespond[]) => {
